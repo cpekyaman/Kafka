@@ -1,0 +1,104 @@
+2018-05-06 22:09:30,196 INFO  [Test worker] ? (:) - StreamsConfig values: 
+	application.id = kafka-streams-wordcount
+	application.server = 
+	bootstrap.servers = [192.168.0.16:9092]
+	buffered.records.per.partition = 1000
+	cache.max.bytes.buffering = 0
+	client.id = 
+	commit.interval.ms = 30000
+	connections.max.idle.ms = 540000
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.key.serde = class org.apache.kafka.common.serialization.Serdes$StringSerde
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = class org.apache.kafka.common.serialization.Serdes$StringSerde
+	key.serde = null
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	partition.grouper = class org.apache.kafka.streams.processor.DefaultPartitionGrouper
+	poll.ms = 100
+	processing.guarantee = at_least_once
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	replication.factor = 1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /tmp/kafka-streams
+	timestamp.extractor = null
+	value.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+	zookeeper.connect = 
+
+2018-05-06 22:09:30,858 INFO  [Test worker] ? (:) - stream-thread [Test worker] Deleting state directory 0_0 for task 0_0 as user calling cleanup.
+2018-05-06 22:09:30,865 ERROR [Test worker] ? (:) - stream-thread [Test worker] Failed to delete the state directory.
+java.nio.file.DirectoryNotEmptyException: \tmp\kafka-streams\kafka-streams-wordcount\0_0
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:266) ~[?:1.8.0_171]
+	at sun.nio.fs.AbstractFileSystemProvider.delete(AbstractFileSystemProvider.java:103) ~[?:1.8.0_171]
+	at java.nio.file.Files.delete(Files.java:1126) ~[?:1.8.0_171]
+	at org.apache.kafka.common.utils.Utils$1.postVisitDirectory(Utils.java:651) ~[kafka-clients-1.1.0.jar:?]
+	at org.apache.kafka.common.utils.Utils$1.postVisitDirectory(Utils.java:634) ~[kafka-clients-1.1.0.jar:?]
+	at java.nio.file.Files.walkFileTree(Files.java:2688) ~[?:1.8.0_171]
+	at java.nio.file.Files.walkFileTree(Files.java:2742) ~[?:1.8.0_171]
+	at org.apache.kafka.common.utils.Utils.delete(Utils.java:634) ~[kafka-clients-1.1.0.jar:?]
+	at org.apache.kafka.streams.processor.internals.StateDirectory.cleanRemovedTasks(StateDirectory.java:287) [kafka-streams-1.1.0.jar:?]
+	at org.apache.kafka.streams.processor.internals.StateDirectory.clean(StateDirectory.java:228) [kafka-streams-1.1.0.jar:?]
+	at org.apache.kafka.streams.TopologyTestDriver.close(TopologyTestDriver.java:568) [kafka-streams-test-utils-1.1.0.jar:?]
+	at kafka.streams.wordcount.WordCountAppTest.tearDown(WordCountAppTest.scala:27) [test/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:116) [gradle-testing-jvm-4.6.jar:4.6]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:59) [gradle-testing-jvm-4.6.jar:4.6]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:39) [gradle-testing-jvm-4.6.jar:4.6]
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66) [gradle-testing-jvm-4.6.jar:4.6]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51) [gradle-testing-base-4.6.jar:4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93) [gradle-messaging-4.6.jar:4.6]
+	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source) [?:?]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109) [gradle-testing-base-4.6.jar:4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:146) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:128) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404) [gradle-messaging-4.6.jar:4.6]
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63) [gradle-base-services-4.6.jar:4.6]
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46) [gradle-base-services-4.6.jar:4.6]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_171]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_171]
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55) [gradle-base-services-4.6.jar:4.6]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_171]

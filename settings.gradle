@@ -1,0 +1,5 @@
+rootProject.name = 'kafka'
+
+include 'udemy-kafka'
+include 'udemy-kafka-streams'
+include 'udemy-kafka-connect'

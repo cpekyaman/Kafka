@@ -1,0 +1,13 @@
+ext {
+    kafkaStreamsVersion = '1.1.0'
+}
+
+dependencies {
+    compile(group: 'org.apache.kafka', name: 'kafka-streams', version: kafkaStreamsVersion) {
+        exclude group: 'org.rocksdb', module: 'rocksdbjni'
+    }
+    //compile group: 'org.rocksdb', name: 'rocksdbjni', version: '5.7.3'
+    compile files("$projectDir/lib/rocksdbjni-5.9.2.jar")    
+
+    testCompile group: 'org.apache.kafka', name: 'kafka-streams-test-utils', version: kafkaStreamsVersion
+}
